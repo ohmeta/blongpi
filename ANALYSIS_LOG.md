@@ -27,8 +27,10 @@ This document serves as both a technical report and a pedagogical record of the 
 *   **Problem**: Panaroo reported "No gene clusters present above the core frequency threshold."
 *   **Investigation**: We checked MAG sizes. One MAG was only 928KB. Standard *B. longum* is ~2.4MB.
 *   **Lesson**: Default thresholds (95%) assume high-quality isolate genomes. With Metagenome-Assembled Genomes (MAGs), fragmentation is expected.
-*   **Solution**: Lowered `--core_threshold` to `0.5`. This allowed the pipeline to find "core" genes even if half the assemblies were missing that specific region.
+*   **Solution**: Lowered `--core_threshold` to `0.5`. This ensures that genes present in at least 50% of the genomes (14/28) are captured for the phylogenomic tree construction.
+*   **How the tree was built**: By lowering the threshold to 50%, Panaroo could generate a `core_gene_alignment.aln`. For MAGs missing a specific gene, Panaroo fills the alignment with gaps (`---`). IQ-TREE then uses the concatenated sequence of these "pseudo-core" genes to calculate the phylogeny, allowing us to build a tree even with fragmented data.
 *   **Fix**: Modified `scripts/01.run_genomics.sh`.
+*   **Note on Summary Statistics**: Even after this fix, `summary_statistics.txt` will still show **0 Core genes**. This is because Panaroo's summary file uses fixed reporting bins (99% and 95%). Our `--core_threshold 0.5` parameter affects the **processing logic** (which genes are included in the alignment) rather than the **reporting labels**. The genes used for the tree are currently located in the "Shell genes" bin of the summary report.
 
 ### Phase 2: The HMM Preparation (Step 2)
 *   **Problem**: `markers.hmm` was missing, and initial strategy documents had incorrect IDs.
