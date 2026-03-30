@@ -11,9 +11,15 @@ We investigate why certain *B. longum* strains transition efficiently between th
 - **The Question**: Are Exposure-group infants colonized by specific "Sharing-Specialist" strains, or do unrelated strains acquire functional tools to survive this transition?
 
 ### 1.2 Biological Hypotheses
-- **Hypothesis A (Adhesion)**: Sharing strains have superior mucosal attachment via **Tad (Tight Adherence)** or **Sortase-dependent pili**.
-- **Hypothesis B (Metabolism)**: Sharing strains are metabolic specialists capable of utilizing specific **Human Milk Oligosaccharides (HMOs)** like Fucose or Sialic acid.
+...
 - **Hypothesis C (Survival)**: Sharing strains better survive the hazardous transit (stomach acid/bile) via **Bile Salt Hydrolases (BSH)** or **ATP-driven proton pumps**.
+
+### 1.3 Directionality & The "Exposure" Effect
+Why does the Exposure group have higher sharing efficiency? 
+1.  **Exposure-Driven Transport**: We hypothesize that the "Exposure" factor increases the **physical frequency** of bacteria moving from the nose to the gut (e.g., via increased post-nasal drip or swallowing).
+2.  **The Ecological Bridge**: In the Exposure group, the "Nose $\rightarrow$ Gut" pathway acts as a major ecological bridge. Strains are constantly being "swallowed" into the digestive tract.
+3.  **Survival Selection**: Because this transport is more frequent in the Exposure group, there is a much stronger selection pressure for strains to possess the **"Motor and Shield"** package (MtrAB-LpqB for surviving the stomach and Fructose PTS for rapid growth in the gut).
+4.  **Strain Identity**: "Sharing Efficiency" measures the appearance of the **same strain** in both sites. In the Exposure group, the high frequency of successful transport leads to the same high-fitness strains dominating both the nasal and gut niches, a pattern less observed in the Control group.
 
 ---
 
