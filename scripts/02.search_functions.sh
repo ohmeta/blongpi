@@ -26,6 +26,9 @@ done
 # Summarize hits
 echo ">>> Collating results into combined_markers.tsv..."
 # Header
-echo -e "target_name\tquery_name\tfull_sequence_e_value" > $OUT_DIR/combined_markers.tsv
-# Extract hits (ignoring comments)
-grep -v "^#" $OUT_DIR/*_hits.txt | awk 'BEGIN {OFS="\t"} {print $1,$3,$5}' >> $OUT_DIR/combined_markers.tsv
+echo -e "genome_id\ttarget_name\tquery_name\tfull_sequence_e_value" > $OUT_DIR/combined_markers.tsv
+# Extract hits and include genome ID from filename
+for f in $OUT_DIR/*_hits.txt; do
+    id=$(basename $f _hits.txt)
+    grep -v "^#" "$f" | awk -v gid="$id" 'BEGIN {OFS="\t"} {print gid,$1,$3,$5}' >> $OUT_DIR/combined_markers.tsv
+done

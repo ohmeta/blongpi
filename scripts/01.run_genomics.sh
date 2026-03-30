@@ -1,6 +1,6 @@
 #!/bin/bash
 # blongpi - Step 1: Foundation
-# Requirements: prokka, panaroo, iqtree
+# Requirements: bakta, panaroo, iqtree
 
 # Get the absolute path of the blongpi directory
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
@@ -10,17 +10,19 @@ RES_DIR="$BASE_DIR/results"
 mkdir -p $RES_DIR/annotations $RES_DIR/pangenome $RES_DIR/phylogeny
 
 # 1. Annotation
-echo ">>> Running Prokka..."
-for f in $MAG_DIR/*.fasta; do
-    id=$(basename $f .fasta)
-    prokka --outdir $RES_DIR/annotations/$id --prefix $id --genus Bifidobacterium --species longum --cpus 8 $f
+echo ">>> Running Bakta..."
+for f in $MAG_DIR/*.fa; do
+    id=$(basename $f .fa)
+    prokka --outdir $RES_DIR/annotations/$id --prefix $id --genus Bifidobacterium --species longum --cpus 32 $f
 done
 
 # 2. Pangenome (Panaroo)
 echo ">>> Running Panaroo..."
 # Collect all GFF files
 GFFS=$(ls $RES_DIR/annotations/*/*.gff)
-panaroo -i $GFFS -o $RES_DIR/pangenome --clean-mode strict -a core --threads 8
+# Suppress Biopython warnings and adjust core threshold for MAGs
+export PYTHONWARNINGS="ignore::BiopythonDeprecationWarning"
+panaroo -i $GFFS -o $RES_DIR/pangenome --clean-mode strict -a core --core_threshold 0.5 --threads 32
 
 # 3. Phylogeny
 echo ">>> Running IQ-TREE..."
