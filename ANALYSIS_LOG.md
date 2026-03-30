@@ -82,7 +82,7 @@ This document serves as both a technical report and a pedagogical record of the 
 
 ---
 
-## 5. The Relationship Between Discovery (Panaroo) and Validation (HMMER)
+## 4. The Relationship Between Discovery (Panaroo) and Validation (HMMER)
 
 One might ask: *Were the targeted HMMs identified FROM the Panaroo results?*
 
@@ -99,6 +99,17 @@ The answer is **No**. In this pipeline, they are **Complementary but Independent
 The R script (`03.analysis_viz.R`) brings these together. We perform a pangenome-wide Fisher's test to find *statistically enriched clusters*. We then compare these clusters to our *Targeted HMM hits*. 
 - If a Panaroo cluster is enriched AND it hits an HMM marker, we have **high-confidence evidence** of a biological driver.
 - If an HMM marker is present but Panaroo doesn't show it as "enriched," it means the gene is likely a "core" trait of *B. longum* and not the reason why some strains "share" better than others.
+
+---
+
+## 5. Phylogenomic Interpretation: Clonal vs. Convergent
+
+We build a tree using >50% genes to establish the "Null Model" of the species evolution. 
+
+1.  **Scenario A (Clustering)**: If Exposure MAGs cluster together, the "Sharing" phenotype is **Clonal**. A specific lineage of *B. longum* is responsible.
+2.  **Scenario B (Mixing)**: If Exposure and Control MAGs are mixed, but only Exposure MAGs have specific functional genes (from HMMER), the phenotype is **Convergent**. Different strains are independently adapting to the "Exposure" environment, potentially via Horizontal Gene Transfer (HGT).
+
+Building the tree allows us to distinguish between these two fundamental biological processes.
 
 ---
 
