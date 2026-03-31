@@ -11,15 +11,16 @@ We investigate why certain *B. longum* strains transition efficiently between th
 - **The Question**: Are Exposure-group infants colonized by specific "Sharing-Specialist" strains, or do unrelated strains acquire functional tools to survive this transition?
 
 ### 1.2 Biological Hypotheses
-...
-- **Hypothesis C (Survival)**: Sharing strains better survive the hazardous transit (stomach acid/bile) via **Bile Salt Hydrolases (BSH)** or **ATP-driven proton pumps**.
+- **Hypothesis A (Adhesion)**: Sharing strains have superior mucosal attachment via **Tad (Tight Adherence)** or **Sortase-dependent pili**, allowing them to form stable colonies in both niches.
+- **Hypothesis B (Metabolism)**: Sharing strains are metabolic specialists capable of utilizing specific **Human Milk Oligosaccharides (HMOs)** like Fucose or Sialic acid, giving them a growth advantage in the infant environment.
+- **Hypothesis C (Survival)**: Sharing strains better survive the hazardous transit (stomach acid/bile) via **Bile Salt Hydrolases (BSH)** or **MtrAB-LpqB** cell-wall resilience.
 
-### 1.3 Directionality & The "Exposure" Effect
-Why does the Exposure group have higher sharing efficiency? 
-1.  **Exposure-Driven Transport**: We hypothesize that the "Exposure" factor increases the **physical frequency** of bacteria moving from the nose to the gut (e.g., via increased post-nasal drip or swallowing).
-2.  **The Ecological Bridge**: In the Exposure group, the "Nose $\rightarrow$ Gut" pathway acts as a major ecological bridge. Strains are constantly being "swallowed" into the digestive tract.
-3.  **Survival Selection**: Because this transport is more frequent in the Exposure group, there is a much stronger selection pressure for strains to possess the **"Motor and Shield"** package (MtrAB-LpqB for surviving the stomach and Fructose PTS for rapid growth in the gut).
-4.  **Strain Identity**: "Sharing Efficiency" measures the appearance of the **same strain** in both sites. In the Exposure group, the high frequency of successful transport leads to the same high-fitness strains dominating both the nasal and gut niches, a pattern less observed in the Control group.
+### 1.3 Directionality: Why higher sharing in Exposure?
+"Sharing Efficiency" is a measure of the same strain appearing in both sites. We hypothesize that the Exposure group has higher efficiency due to **Bidirectional Ecological Bridging**:
+
+1.  **Nose $\rightarrow$ Gut (The Transit Path)**: Increased physical frequency of swallowing/post-nasal drip in the Exposure group selects for the **"Shield" (MtrAB-LpqB)**. Strains must survive the acidic stomach to reach the gut.
+2.  **Gut $\rightarrow$ Nose (The Dispersion Path)**: Because the gut is the primary reservoir, strains that grow rapidly via the **"Motor" (Fructose PTS)** reach massive absolute abundance. High abundance in the "base camp" statistically increases the probability of being transferred back to the nasal cavity through contact or colonization pressure.
+3.  **The Exposure Effect**: The environmental factor in the Exposure group likely acts as a "Pump," increasing the physical mixing between these sites. Only strains with the combined "Motor and Shield" package can successfully navigate and dominate this high-frequency exchange.
 
 ---
 
@@ -86,14 +87,12 @@ To achieve a truly comprehensive "Level 2" analysis, we recommend:
 - **Step 2 (Functional)**: Overhauled the HMM database by correcting mislabeled strategy IDs using the InterPro 2026 API.
 - **Step 3 (Visualization)**: Reconstructed the R script to integrate metadata correctly, ensuring the phylogenetic tree correctly displayed "Exposure" vs "Control" group labels and automated the plotting of statistically suggestive genes (e.g., Fructose PTS system).
 
-**Final Biological Narrative**: Body-site sharing in the Exposure group is driven by **Convergent Evolution**. The Exposure environment selects for a high-performance **"Motor and Shield" Fitness Package** that overrides ancestral lineages:
+**Final Biological Narrative**: These preliminary results suggest that body-site sharing in the Exposure group may be a **Convergent Trait**. The data points toward a high-performance **"Motor and Shield" Candidate Package** that overrides ancestral lineages:
 
-1.  **The Shield (Structural Resilience: `mtrA/B`, `lpqB`)**:
-    - **Function**: Coordinates cell-wall reinforcement in response to stress.
-    - **Impact**: Allows strains to survive the "Environmental Gauntlet" (stomach acid and bile salts) during the hazardous transit from the nose to the gut.
+1.  **The Shield Candidate (Structural Resilience: `mtrA/B`, `lpqB`)**:
+    - **Hypothesis**: These genes likely coordinate cell-wall reinforcement, potentially allowing strains to survive the "Environmental Gauntlet" (stomach acid and bile salts) during transit.
 
-2.  **The Motor (Metabolic Opportunism: `fruG/F/K/E`)**:
-    - **Function**: High-efficiency fructose scavenging via the PTS system.
-    - **Impact**: Provides a rapid growth advantage in the gut. Higher absolute titers increase the statistical probability of site-to-site translocation ("sharing").
+2.  **The Motor Candidate (Metabolic Opportunism: `fruG/F/K/E`)**:
+    - **Hypothesis**: High-efficiency fructose scavenging may provide a rapid growth advantage in the gut, increasing the statistical probability of site-to-site "sharing."
 
-This synergistic combination of **Survival (Shield)** and **Growth (Motor)** explains why unrelated *B. longum* lineages in the Exposure group dominate the body-site sharing niche.
+**Scientific Note**: Due to the small cohort size (n=28) and the fact that these clusters did not pass strict FDR-corrected significance, these genes should be treated as **high-priority candidates for future validation** rather than confirmed biological drivers.
